@@ -1,0 +1,10 @@
+                                         Source code
+1)>mongoimport --jsonArray --db employees --collection employeedata --file Downloads\employee_data.json
+2)C:\Users\rlikhith>mongo
+3)> use employees
+4)> show collections
+5)> db.employeedata.find({term1:{$lte:37}});
+6)> db.employeedata.find({term1:{$lte:37}}).count();
+7)> db.employeedata.aggregate([{$group:{'_id':'term1',average:{$avg:'$term1'}}}])
+8)> db.employeedata.find({$and:[{term1:{$gt:37}},{term2:{$gt:37}},{term3:{$gt:37}}]})
+9)> db.employeedata.aggregate({$project:{avg_emp:{$avg:["$term1","$term2","$term3"]}}})
